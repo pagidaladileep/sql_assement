@@ -1,3 +1,15 @@
+-- Exercise 1 (5 marks):
+
+-- Create a database schema for the online consultation and therapy website. The database should contain the following tables:-
+
+-- Doctor table:- The table should contain the attributes such as id, name, specialization, etc.
+
+-- Appointments table:- The table should contain information related to appointments set up by doctors and patients.
+
+-- Patient table:- The table should contain information on patients.
+
+-- Reviews table:- This table should contain reviews posted by patients.
+
 
 drop table doctor_table;
 create database consultation;
@@ -34,7 +46,7 @@ foreign key (doctor_id) references doctor_table(doctor_id));
 insert into review values(501,10.0,101,2001),(502,9.0,102,2002),
 (503,6.8,103,2003),(504,4.8,104,2004),(505,7.0,105,2005);
 
-
+-- Exercise 2
 CREATE TABLE CONTACT(
 	CONTACT_ID INT PRIMARY KEY NOT NULL,
 	CONTACT_EMAIL VARCHAR(30),
@@ -47,24 +59,27 @@ CREATE TABLE CONTACT(
 INSERT INTO CONTACT VALUES(123,"a@a.com","Kian","Seth","ABC",1,1),(133,"b@a.com","Neha","Seth","ABC",1,0),(234,"c@c.com","Puru","Malik","CDF",0,0),(342,"d@d.com","Sid","Maan","TEG",1,0);
 select * from CONTACT;
 
--- Select all columns from the contact table where the active flag is 1
+-- 1.Select all columns from the contact table where the active flag is 1
 select * from CONTACT where active_flag=1;
 
--- Deactivate contacts who are opted out
+-- 2.Deactivate contacts who are opted out
 delete from contact where opt_out=1;
 
--- Delete all the contacts who have the company name as ‘ABC’
+-- 3.Delete all the contacts who have the company name as ‘ABC’
 delete from CONTACT where company='ABC';
 
--- Insert a new row with id as 658, name as ‘mili’, email as ‘mili@gmail.com’, the company as ‘DGH’, active flag as 1, opt-out flag as 1
+-- 4.Insert a new row with id as 658, name as ‘mili’, email as ‘mili@gmail.com’, the company as ‘DGH’, active flag as 1, opt-out flag as 1
 insert into CONTACT values(658,'mili@gmail.com','mili',"seth","dgh",1,1);
 
--- Pull out the unique values of the company column 
+-- 5.Pull out the unique values of the company column 
 select distinct company from CONTACT; 
 
--- Update name “mili” to “niti”.
+-- 6.Update name “mili” to “niti”.
 update contact set fname="niti" where fname="mili";
 -- ======================================================================
+
+-- Exercise 3
+
 CREATE TABLE CUSTOMER(
 	customer_id INT PRIMARY KEY NOT NULL,
     cust_name VARCHAR(20),
